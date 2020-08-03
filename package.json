@@ -1,0 +1,25 @@
+{
+    "name": "thumbnail_generator",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build": "webpack",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/hanameee/thumbnail_generator.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/hanameee/thumbnail_generator/issues"
+    },
+    "homepage": "https://github.com/hanameee/thumbnail_generator#readme",
+    "devDependencies": {
+        "webpack": "^4.44.1",
+        "webpack-cli": "^3.3.12"
+    }
+}
