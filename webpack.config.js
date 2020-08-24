@@ -17,6 +17,23 @@ module.exports = {
                 use: "ts-loader",
                 exclude: "/node_modules/",
             },
+            {
+                test: /\.css$/,
+                use: ["style-loader", "css-loader"],
+            },
+            {
+                test: /\.(svg|png|jpg|gif)$/i,
+                use: [
+                    {
+                        loader: "url-loader",
+                        options: {
+                            publicPath: "./dist/",
+                            name: "[name].[ext]?[hash]",
+                            limit: 5000, // 5kb
+                        },
+                    },
+                ],
+            },
         ],
     },
     output: {
