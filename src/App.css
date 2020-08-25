@@ -2,6 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: "Noto Sans KR";
+    font-weight: 300;
+    src: url(./fonts/NotoSansKR-Light.otf);
+}
+
+@font-face {
+    font-family: "Noto Sans KR";
+    font-weight: 400;
+    src: url(./fonts/NotoSansKR-Regular.otf);
+}
+
+@font-face {
+    font-family: "Noto Sans KR";
+    font-weight: 500;
+    src: url(./fonts/NotoSansKR-Medium.otf);
+}
+
+@font-face {
+    font-family: "Noto Sans KR";
+    font-weight: 600;
+    src: url(./fonts/NotoSansKR-Bold.otf);
+}
+
 html {
-    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-family: "Noto Sans KR", Arial, sans-serif;
 }
