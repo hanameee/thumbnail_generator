@@ -1,10 +1,11 @@
-# Thumbnail Generator 🎆
+<h1 align="center">Thumbnail Generator 🎆</h1>
+<p align="center">기록용으로 남기는 토이프로젝트 제작기 101</div>
+
+ `Webpack` `React` `Typescript` `TailwindCSS`
 
 ## 1. 환경 설정
 
 ### 1-1. Webpack 설정
-
-Webpack을 사용해 React, Typescript를 사용하는 SPA 환경설정을 해보자.
 
 #### 1) 새로운 프로젝트 생성
 
@@ -153,9 +154,10 @@ module.exports = {
 ```
 
 #### 4) 그 외 필요한 Loader, Plugin 설정
-
-
-
+- loaders for css (css-loader, style-loader)
+- loaders for files (file-loader, url-loader)
+- postcss-loader : tailwindcss를 위해
+- 폰트 설정...경로 수정도 해줘야 함. https://chriscourses.com/blog/loading-fonts-webpack
 ### 1-2. Typescript 컴파일 설정
 
 웹팩과 ts를 함께 사용하기 위해 택할 수 있는 대표적인 방법은 아래 2가지가 있다.
@@ -164,16 +166,26 @@ module.exports = {
 
 2) babel-loader에 typescript-preset을 얹어 사용
 
-나는 1번을 택했다.
+나는 1번을 택했다. **왜?**(추가 예정)
 
 [Reference]
 
 - [React + Typescript + Webpack](https://dev.to/jacopobonta/react-typescript-webpack-3c6l)
+- [TypeScript -- @babel/preset-typescript & ts-loader](https://www.evanlouie.com/posts/typescript-babel-preset-typescript-ts-loader)
 
 
 
-### 1-3. 폰트 설정
+## 2. 프로젝트 구조 설정
 
-[Reference]
+### 컴포넌트 기반 개발
 
-- https://chriscourses.com/blog/loading-fonts-webpack
+
+
+### tailwindcss 를 사용한 utility first 개발
+
+그냥 해보고 싶어서...
+
+- traditional css
+- bootstrap, material ui 등
+- Css-in-js (styled-component, )
+- Tailwinds(?)
