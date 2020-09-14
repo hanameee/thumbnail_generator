@@ -1,15 +1,20 @@
-import React from "react";
-import ResultNavigation from "../ResultNavigation/ResultNavigation";
+import React, { useState } from "react";
+import ColorChart from "../ColorChart/ColorChart";
+import FontChart from "../FontChart/FontChart";
 
-export default function Result() {
+const Result = () => {
+    const [tab, setTab] = useState("Color");
     return (
-        <div>
-            <ResultNavigation />
-            <div>
-                결과창
-                <h1>결과 타이틀</h1>
-                컴포넌트들
-            </div>
-        </div>
+        <>
+            <nav>
+                <ul>
+                    <li onClick={() => setTab("Color")}>색상</li>
+                    <li onClick={() => setTab("Font")}>폰트</li>
+                </ul>
+            </nav>
+            {tab === "Color" ? <ColorChart /> : <FontChart />}
+        </>
     );
-}
+};
+
+export default Result;
