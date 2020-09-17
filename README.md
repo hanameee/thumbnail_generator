@@ -166,12 +166,37 @@ module.exports = {
 
 2) babel-loader에 typescript-preset을 얹어 사용
 
-나는 1번을 택했다. **왜?**(추가 예정)
+나는 1번을 택했다. **왜?**
+
+#### ts-loader 장단점
+
+[장점]
+
+1. 타입스크립트의 장점을 누릴 수 있다. 즉, 정확한 타입 체킹이 가능하다. 빌드 타임에 type-safe한 결과물을 보장한다.
+2. IDE 에서 타입스크립트 환경설정 파일을 참고하여 코드 작성 시 발생한 타입 에러들을 잡을 수 있다.
+
+[단점]
+
+1. 타입스크립트 컴파일러와 로더를 추가적으로 설치해야 한다.
+2. 빌드 시 모든 타입스크립트 에러를 잡아내는 과정을 거치기 때문에, 상대적으로 느리다.
+
+#### Babel-loader 장단점
+
+[장점]
+
+1. Babel loader은 타입스크립트 컴파일러를 사용하지 않는다. 따라서 기존에 바벨을 사용하고 있었다면 별도로 패키지를 추가할 필요 없이 기존 바벨 설정에 preset을 추가해주는 것 만으로 끝난다.
+2. 빌드가 빠르다. ts를 js로 바꿀 때, 별도의 타입체크를 하지 않고 그냥 ts를 js로 변환하는 (=ts를 걷어내는) 작업만 하기 때문에 빠르다.
+
+[단점]
+
+1. babel-loader만으로는 typescript의 타입 체크 장점을 누릴 수 없다. 타입스크립트 컴파일러가 돌아가지 않고 단지 빌드 시 ts를 js를 변환해주는 작업만 하기 때문이다. 즉, 빌드 타임에 type-safe한 결과물을 보장하지 않는다.
+2. 타입스크립트 컴파일러가 없으므로 IDE에서 코드 작성 시 타입 체킹을 해주는 순기능도 누릴 수가 없다.
 
 [Reference]
 
 - [React + Typescript + Webpack](https://dev.to/jacopobonta/react-typescript-webpack-3c6l)
 - [TypeScript -- @babel/preset-typescript & ts-loader](https://www.evanlouie.com/posts/typescript-babel-preset-typescript-ts-loader)
+- [Typescript 사용 방법들과 각 장단점](https://bitnam.blog/88)
 
 
 
