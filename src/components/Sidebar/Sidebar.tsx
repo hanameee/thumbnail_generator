@@ -1,4 +1,5 @@
 import React from "react";
+import ColorChart from "../ColorChart/ColorChart";
 
 export default function Sidebar() {
     return (
@@ -9,6 +10,7 @@ export default function Sidebar() {
                 type="email"
                 placeholder="따뜻한"
             />
+            <ColorChart />
             <h2 className="pt-5">2.어떤 기능이 필요하신가요?</h2>
             <div className="flex flex-col">
                 <label className="inline-flex items-center">

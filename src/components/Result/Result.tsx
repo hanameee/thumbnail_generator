@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import ColorChart from "../ColorChart/ColorChart";
 import FontChart from "../FontChart/FontChart";
+import Color from "./Color";
 
 const Result = () => {
     const [tab, setTab] = useState("color");
@@ -28,7 +28,7 @@ const Result = () => {
                     </li>
                 </ul>
             </nav>
-            {tab === "color" ? <ColorChart /> : <FontChart />}
+            {tab === "color" ? <Color /> : <FontChart />}
         </>
     );
 };
