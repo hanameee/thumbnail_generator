@@ -13,6 +13,18 @@ const colorData = {
         맑은: { x: 4.9, y: 9 },
         온화한: { x: 7.9, y: 8.4 },
     },
+    colorNameOptions: {
+        빨강색: "red",
+        주황색: "orange",
+        노랑색: "yellow",
+        연두색: "green",
+        청록색: "teal",
+        파랑색: "blue",
+        남색: "indigo",
+        보라색: "purple",
+        분홍색: "pink",
+        무채색: "gray",
+    },
 };
 
 export default colorData;

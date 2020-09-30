@@ -30,3 +30,15 @@ interface IPalette {
         dark: string;
     };
 }
+
+export type colorType =
+    | "빨강색"
+    | "주황색"
+    | "노랑색"
+    | "연두색"
+    | "청록색"
+    | "파랑색"
+    | "남색"
+    | "보라색"
+    | "분홍색"
+    | "무채색";
