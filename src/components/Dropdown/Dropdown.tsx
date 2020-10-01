@@ -32,7 +32,22 @@ const Dropdown: React.FC<IDropdownProps> = ({
                         aria-expanded="true"
                         onClick={toggleOpen}
                     >
-                        {selectedData ? selectedData : "단어를 골라주세요 🙏"}
+                        {selectedData ? (
+                            selectedData
+                        ) : (
+                            <div className="flex items-center">
+                                단어를 골라주세요
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    className="h-6 w-6 stroke-2"
+                                >
+                                    <path d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
+                        )}
                     </button>
                 </span>
             </div>
