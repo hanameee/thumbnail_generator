@@ -6,7 +6,7 @@ interface IResultProps {
     color: Array<number>;
 }
 const Result: React.FC<IResultProps> = ({ menus, color }) => {
-    const [tab, setTab] = useState("color");
+    const [tab, setTab] = useState(menus[0]);
     return (
         <>
             <nav className="shadow">
@@ -14,6 +14,7 @@ const Result: React.FC<IResultProps> = ({ menus, color }) => {
                     {menus
                         ? menus.map((menu) => (
                               <li
+                                  key={menu}
                                   className={`flex flex-row items-center px-6 hover:bg-gray-600 ${
                                       tab == menu ? "bg-gray-600" : ""
                                   } cursor-pointer`}
@@ -28,7 +29,6 @@ const Result: React.FC<IResultProps> = ({ menus, color }) => {
                 </ul>
             </nav>
             {tab === "색상 팔레트" && <ColorPalette color={color} />}
-            {/* <ColorPalette color={color} /> */}
         </>
     );
 };

@@ -1,7 +1,7 @@
-<h1 align="center">Thumbnail Generator 🎆</h1>
+<h1 align="center">[WIP] Theme Generator 🎆</h1>
 <p align="center">기록용으로 남기는 토이프로젝트 제작기 101</div>
 
- `Webpack` `React` `Typescript` `TailwindCSS`
+`Webpack` `React` `Typescript` `TailwindCSS`
 
 ## 1. 환경 설정
 
@@ -17,25 +17,25 @@ mkdir src
 touch src/index.tsx
 ```
 
-#### 2)  Dependencies 설치
+#### 2) Dependencies 설치
 
 Runtime Dependencies는 다음과 같다.
 
-- react
-- react-dom
+-   react
+-   react-dom
 
 Build Dependencies는 다음과 같다.
 
-- webpack
-- webpack-cli
-- webpack-dev-server
-- typescript
-- @types/react
-- @types/react-dom
-- @types/webpack
-- ts-loader: babel이 tsx를 js로 바꾸어서 로드할 수 있도록 해줌
-- source-map-loader
-- html-webpack-plugin: 웹팩이 html 파일을 읽어서 로드할 수 있도록 해줌
+-   webpack
+-   webpack-cli
+-   webpack-dev-server
+-   typescript
+-   @types/react
+-   @types/react-dom
+-   @types/webpack
+-   ts-loader: babel이 tsx를 js로 바꾸어서 로드할 수 있도록 해줌
+-   source-map-loader
+-   html-webpack-plugin: 웹팩이 html 파일을 읽어서 로드할 수 있도록 해줌
 
 참고) `Runtime Dependencies` vs. `Build Dependencies`
 
@@ -76,7 +76,7 @@ Build Dependencies: 코드 개발 시에만 필요한 Dependencies들로, packag
 }
 ```
 
-위를 참고해 작성해준 뒤,  `npm install` 을 하면 필요한 dependencies를 설치할 수 있다.
+위를 참고해 작성해준 뒤, `npm install` 을 하면 필요한 dependencies를 설치할 수 있다.
 
 #### 3) configuration 파일 작성
 
@@ -106,9 +106,10 @@ touch tsconfig.json
     "exclude": ["node_modules"]
 }
 ```
+
 [tsconfig 컴파일 옵션 정리](https://vomvoru.github.io/blog/tsconfig-compiler-options-kr/)
-[Intro to the TSConfig Reference](https://www.typescriptlang.org/tsconfig)
-2. webpack.config.js 파일 생성
+[Intro to the TSConfig Reference](https://www.typescriptlang.org/tsconfig) 2. webpack.config.js 파일 생성
+
 ```bash
 touch webpack.config.js
 ```
@@ -154,17 +155,19 @@ module.exports = {
 ```
 
 #### 4) 그 외 필요한 Loader, Plugin 설정
-- loaders for css (css-loader, style-loader)
-- loaders for files (file-loader, url-loader)
-- postcss-loader : tailwindcss를 위해
-- 폰트 설정...경로 수정도 해줘야 함. https://chriscourses.com/blog/loading-fonts-webpack
+
+-   loaders for css (css-loader, style-loader)
+-   loaders for files (file-loader, url-loader)
+-   postcss-loader : tailwindcss를 위해
+-   폰트 설정...경로 수정도 해줘야 함. https://chriscourses.com/blog/loading-fonts-webpack
+
 ### 1-2. Typescript 컴파일 설정
 
 웹팩과 ts를 함께 사용하기 위해 택할 수 있는 대표적인 방법은 아래 2가지가 있다.
 
-1) ts-loader 사용
+1. ts-loader 사용
 
-2) babel-loader에 typescript-preset을 얹어 사용
+2. babel-loader에 typescript-preset을 얹어 사용
 
 나는 1번을 택했다. **왜?**
 
@@ -194,23 +197,19 @@ module.exports = {
 
 [Reference]
 
-- [React + Typescript + Webpack](https://dev.to/jacopobonta/react-typescript-webpack-3c6l)
-- [TypeScript -- @babel/preset-typescript & ts-loader](https://www.evanlouie.com/posts/typescript-babel-preset-typescript-ts-loader)
-- [Typescript 사용 방법들과 각 장단점](https://bitnam.blog/88)
-
-
+-   [React + Typescript + Webpack](https://dev.to/jacopobonta/react-typescript-webpack-3c6l)
+-   [TypeScript -- @babel/preset-typescript & ts-loader](https://www.evanlouie.com/posts/typescript-babel-preset-typescript-ts-loader)
+-   [Typescript 사용 방법들과 각 장단점](https://bitnam.blog/88)
 
 ## 2. 프로젝트 구조 설정
 
 ### 컴포넌트 기반 개발
 
-
-
 ### tailwindcss 를 사용한 utility first 개발
 
 그냥 해보고 싶어서...
 
-- traditional css
-- bootstrap, material ui 등
-- Css-in-js (styled-component, )
-- Tailwinds(?)
+-   traditional css
+-   bootstrap, material ui 등
+-   Css-in-js (styled-component, )
+-   Tailwinds(?)
