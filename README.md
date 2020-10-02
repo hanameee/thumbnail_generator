@@ -3,6 +3,7 @@
 
 ![thumbnail](README.assets/thumbnail.png)
 
+사이트 링크는 [여기](https://gallant-elion-c1fd03.netlify.app/)에! 🥳
 개발 일지는 [여기](devLog.md)에! 😎
 
 ## Theme Generator 기능

@@ -1,0 +1,15 @@
+# base image
+FROM node:alpine as builder
+
+# set working directory
+RUN mkdir /app
+WORKDIR /app
+
+# app dependencies, install 및 caching
+COPY package.json package-lock.json /app/
+RUN npm install
+
+COPY . /app
+
+# run app
+RUN npm run build

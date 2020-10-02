@@ -1,13 +1,13 @@
 version: "3.8"
 services:
-    client:
+    app:
+        container_name: app
         stdin_open: true
         build:
             context: .
             dockerfile: Dockerfile
         ports:
-            - "8080:8080"
-        command: npm start
+            - "80:80"
         volumes:
-            - "/app/node_modules"
             - ".:/app"
+            - "/app/node_modules"
