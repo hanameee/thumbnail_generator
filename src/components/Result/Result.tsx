@@ -1,30 +1,35 @@
 import React, { useState } from "react";
+import ColorPalette from "../ColorPalette/ColorPalette";
 
 interface IResultProps {
     menus: Array<string>;
-    color: string;
+    color: Array<number>;
 }
-const Result: React.FC<IResultProps> = ({ menus }) => {
+const Result: React.FC<IResultProps> = ({ menus, color }) => {
     const [tab, setTab] = useState("color");
     return (
-        <nav className="shadow">
-            <ul className="flex text-white h-10 bg-gray-500">
-                {menus
-                    ? menus.map((menu) => (
-                          <li
-                              className={`flex flex-row items-center px-6 hover:bg-gray-600 ${
-                                  tab == menu ? "bg-gray-600" : ""
-                              } cursor-pointer`}
-                              onClick={() => {
-                                  setTab(menu);
-                              }}
-                          >
-                              {menu}
-                          </li>
-                      ))
-                    : ""}
-            </ul>
-        </nav>
+        <>
+            <nav className="shadow">
+                <ul className="flex text-white h-10 bg-gray-500">
+                    {menus
+                        ? menus.map((menu) => (
+                              <li
+                                  className={`flex flex-row items-center px-6 hover:bg-gray-600 ${
+                                      tab == menu ? "bg-gray-600" : ""
+                                  } cursor-pointer`}
+                                  onClick={() => {
+                                      setTab(menu);
+                                  }}
+                              >
+                                  {menu}
+                              </li>
+                          ))
+                        : ""}
+                </ul>
+            </nav>
+            {tab === "색상 팔레트" && <ColorPalette color={color} />}
+            {/* <ColorPalette color={color} /> */}
+        </>
     );
 };
 

@@ -1,25 +1,30 @@
 import React from "react";
 
 interface IColorCircleProps {
-    rgb: Array<number>;
+    hsl: Array<number>;
     idx: number;
     selectedColor: number;
     setSelectedColor: Function;
+    setSeletedHsl: Function;
 }
 
 const ColorCircle: React.FC<IColorCircleProps> = ({
-    rgb,
+    hsl,
     idx,
     selectedColor,
     setSelectedColor,
+    setSeletedHsl,
 }) => {
-    const RGBString = `rgb(${rgb[0]},${rgb[1]},${rgb[2]})`;
+    const handleClick = () => {
+        setSelectedColor(idx);
+        setSeletedHsl(hsl);
+    };
     return (
         <div
             className={`h-16 w-16 m-1 rounded-full shadow-inner shadow-2xl flex items-center justify-center transform hover:scale-105 transition duration-200 ease-in-out cursor-pointer`}
-            onClick={() => setSelectedColor(idx)}
+            onClick={handleClick}
             style={{
-                backgroundColor: RGBString,
+                backgroundColor: `hsl(${hsl[0]},${hsl[1]}%,${hsl[2]}%)`,
             }}
         >
             {selectedColor === idx ? (

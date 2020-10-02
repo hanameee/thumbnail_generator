@@ -20,13 +20,14 @@ const Sidebar: React.FC<ISidebarProps> = ({ setMenus, setColor }) => {
     const [selectedWord, setSelectedWord] = useState<wordType>(null);
     const [selectedColor, setSelectedColor] = useState<number>(null);
     const [selectedMenus, setSelectedMenus] = useState(menus);
+    const [selectedHsl, setSelectedHsl] = useState<string>("");
     const data = wordData.wordRGG[selectedWord];
     const handleMakeTheme = () => {
         const menus = Object.keys(selectedMenus).filter(
             (menu: menuType) => selectedMenus[menu] === true
         );
         setMenus(menus);
-        setColor(selectedColor);
+        setColor(selectedHsl);
     };
     const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSelectedMenus({
@@ -52,12 +53,13 @@ const Sidebar: React.FC<ISidebarProps> = ({ setMenus, setColor }) => {
             </h2>
             {selectedWord ? (
                 <div className="flex flex-wrap justify-center">
-                    {data.map((rgb, idx) => (
+                    {data.map((hsl, idx) => (
                         <ColorCircle
                             key={idx}
-                            rgb={rgb}
+                            hsl={hsl}
                             idx={idx}
                             selectedColor={selectedColor}
+                            setSeletedHsl={setSelectedHsl}
                             setSelectedColor={setSelectedColor}
                         />
                     ))}
