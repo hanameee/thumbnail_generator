@@ -54,12 +54,12 @@ const ColorPalette: React.FC<IColorPaletteProps> = ({ color }) => {
                 color_arr={complementary_hsl_arr}
             />
             <ColorPaletteBlock
-                block_title="단색"
-                color_arr={monochromatic_hsl_arr}
-            />
-            <ColorPaletteBlock
                 block_title="유사색"
                 color_arr={analogus_hsl_arr}
+            />
+            <ColorPaletteBlock
+                block_title="단색"
+                color_arr={monochromatic_hsl_arr}
             />
         </div>
     );
