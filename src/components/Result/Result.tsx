@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import ColorPalette from "../ColorPalette/ColorPalette";
+import React, { Suspense, useState } from "react";
+const ColorPalette = React.lazy(() => import("../ColorPalette/ColorPalette"));
 
 interface IResultProps {
     menus: Array<string>;
@@ -28,7 +28,11 @@ const Result: React.FC<IResultProps> = ({ menus, color }) => {
                         : ""}
                 </ul>
             </nav>
-            {tab === "색상 팔레트" && <ColorPalette color={color} />}
+            {tab === "색상 팔레트" && (
+                <Suspense fallback={<div>Loading...</div>}>
+                    <ColorPalette color={color} />
+                </Suspense>
+            )}
         </>
     );
 };

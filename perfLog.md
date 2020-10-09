@@ -353,3 +353,63 @@ https://palindrom615.dev/optimizing-web-font
 https://shylog.com/googlefonts-and-webfont-optimization/
 
 https://black7375.tistory.com/72
+
+---
+
+`201008~201009` 
+
+## TailwindCSS 번들 최적화
+
+번들링 한 결과물이 커도 너무커서 이상했는데, 만든 것도 별로 없는데 Dynamic loading을 적용 안한 탓인가 싶어서 바꿔봐도 여전히 번들 사이즈가 너무 컸다.
+
+난 바보였다. 웹팩에서 친절하게 어떤 코드가 얼마나 용량을 차지하는지 알려주는데 하하. 정답은 TailwindCSS였다.
+
+![스크린샷 2020-10-10 오전 1.06.30](perfLog.assets/스크린샷 2020-10-10 오전 1.06.30.png)
+
+TailwindCSS를 처음 사용할 때, App.css에 이렇게 세팅한다.
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+이 귀여워 보이는 3줄이 무려 혼자 3mb 정도를 잡아먹고 있는 것.
+
+Development build에서는 TailwindCSS가 "너가 뭘 좋아할지 몰라서 다 준비했어" 모드이기에, 수천개의 유틸리티 클래스를 다 생성한다.
+
+하지만 Production build에서는 저 수천개의 유틸리티 클래스를 다 포함시키는 것은 말도 안된다. 내가 사용한 CSS만 포함시키고 나머지는 다 tree-shaking으로 떨궈야 한다.
+
+TailwindCSS 공식 홈페이지에서도 이 점을 매우 강조하고 있다. 나만 몰랐쥬? 😂
+
+> **When building for production, you should always use Tailwind's `purge` option to tree-shake unused styles and optimize your final build size.** When removing unused styles with Tailwind, it's very hard to end up with more than 10kb of compressed CSS.
+
+[출처 - TailwindCSS 공식 홈페이지 - Controlling File Size](https://tailwindcss.com/docs/controlling-file-size)
+
+### purge를 통해 사용하지 않은 CSS 제거하기
+
+Tailwind 설정(tailwind.config.js)을 통해 purge 속성을 설정할 수 있다. TailwindCSS의 유틸리티 클래스를 사용하는 모든 파일의 경로를 purge 속성의 값으로 넣어주어야 한다.
+
+```js
+module.exports = {
+    purge: ["./src/**/*.tsx"],
+    plugins: [require("@tailwindcss/custom-forms")],
+};
+```
+
+나 같은 경우엔 그냥 src 하위에 있는 tsx 파일을 포함시켜주었다.
+
+⚠️ 참고로, tailwindcss는 `NODE_ENV` 가 `production` 으로 설정되어 있어야만 css 파일을 purge한다. 이 사실을 몰라서 조금 헤맸는데, 꼭 package.json에 NODE_ENV를 production으로 설정한 빌드 스크립트를 추가하자!
+
+> package.json 예시 (build:prod)
+
+```js
+"scripts": {
+  "start": "webpack-dev-server",
+    "build": "webpack",
+    "build:prod": "export NODE_ENV=production && webpack --mode production"
+},
+```
+
+[출처 - https://garrettbland.com/blog/setting-up-tailwindcss-with-webpack-and-purgecss/]
+

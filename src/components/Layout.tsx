@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Sidebar from "./Sidebar/Sidebar";
 import Result from "./Result/Result";
 
-export default function Layout() {
+const Layout: React.FC = () => {
     const [menus, setMenus] = useState(null);
     const [color, setColor] = useState(null);
     return (
@@ -15,4 +15,6 @@ export default function Layout() {
             </div>
         </div>
     );
-}
+};
+
+export default Layout;
