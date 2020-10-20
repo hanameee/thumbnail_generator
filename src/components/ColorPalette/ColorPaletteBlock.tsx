@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { ColorTranslator } from "colortranslator";
 import ColorPaletteLabel from "./ColorPaletteLabel";
 
@@ -11,6 +11,11 @@ const ColorPaletteBlock: React.FC<IColorPaletteBlock> = ({
     block_title,
     color_arr,
 }) => {
+    const [checkedIdx, setCheckedIdx] = useState();
+    const handleClick = (value: string, idx: number) => {
+        navigator.clipboard.writeText(value);
+        setCheckedIdx;
+    };
     return (
         <div className="py-6 ml-6 border-b border-gray-400">
             <div className="inline-block text-lg font-medium bg-gray-600 text-white rounded-md px-2 py-1">
@@ -35,10 +40,14 @@ const ColorPaletteBlock: React.FC<IColorPaletteBlock> = ({
                                     `hsl(${color[0]},${color[1]}%,${color[2]}%)`
                                 ).RGB
                             }
+                            handleClick={handleClick}
+                            idx={idx}
                         />
                         <ColorPaletteLabel
                             labelTitle="HSL"
                             labelValue={`hsl(${color[0]},${color[1]}%,${color[2]}%)`}
+                            handleClick={handleClick}
+                            idx={idx}
                         />
                     </div>
                 ))}
