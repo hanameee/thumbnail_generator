@@ -11,10 +11,10 @@ const ColorPaletteBlock: React.FC<IColorPaletteBlock> = ({
     block_title,
     color_arr,
 }) => {
-    const [checkedIdx, setCheckedIdx] = useState();
-    const handleClick = (value: string, idx: number) => {
+    const [checkedIdx, setCheckedIdx] = useState<string>();
+    const handleClick = (value: string, idx: string) => {
         navigator.clipboard.writeText(value);
-        setCheckedIdx;
+        setCheckedIdx(idx);
     };
     return (
         <div className="py-6 ml-6 border-b border-gray-400">
@@ -41,13 +41,15 @@ const ColorPaletteBlock: React.FC<IColorPaletteBlock> = ({
                                 ).RGB
                             }
                             handleClick={handleClick}
-                            idx={idx}
+                            idx={"RGB" + idx}
+                            checked={checkedIdx === "RGB" + idx}
                         />
                         <ColorPaletteLabel
                             labelTitle="HSL"
                             labelValue={`hsl(${color[0]},${color[1]}%,${color[2]}%)`}
                             handleClick={handleClick}
-                            idx={idx}
+                            idx={"HSL" + idx}
+                            checked={checkedIdx === "HSL" + idx}
                         />
                     </div>
                 ))}
