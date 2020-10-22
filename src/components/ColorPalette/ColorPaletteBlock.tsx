@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { ColorTranslator } from "colortranslator";
 import ColorPaletteLabel from "./ColorPaletteLabel";
+import ColorPaletteCanvas from "./ColorPaletteCanvas";
 
 interface IColorPaletteBlock {
     block_title: string;
@@ -21,6 +22,8 @@ const ColorPaletteBlock: React.FC<IColorPaletteBlock> = ({
             <div className="inline-block text-lg font-medium bg-gray-600 text-white rounded-md px-2 py-1">
                 {block_title}
             </div>
+            <ColorPaletteCanvas />
+            <div>개별 색상코드</div>
             <div className="flex flex-wrap">
                 {color_arr.map((color, idx) => (
                     <div
