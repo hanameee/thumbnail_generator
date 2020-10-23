@@ -43,10 +43,10 @@ const ColorPalette: React.FC<IColorPaletteProps> = ({ color }) => {
         }
         return complementary_hsl_arr;
     };
-
     const monochromatic_hsl_arr = getMonochromatic();
     const analogus_hsl_arr = getAnalogous();
     const complementary_hsl_arr = getComplementary();
+
     return (
         <div className="flex flex-col">
             <ColorPaletteBlock

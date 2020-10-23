@@ -1,6 +1,4 @@
 module.exports = {
-    purge: ["./src/**/*.tsx"],
-    plugins: [require("@tailwindcss/custom-forms")],
     theme: {
         minWidth: {
             12: "3rem",
@@ -18,5 +16,12 @@ module.exports = {
             90: ".9",
             100: "1",
         },
+        extend: {
+            width: {
+                "fit-content": "fit-content",
+            },
+        },
     },
+    purge: ["./src/**/*.tsx"],
+    plugins: [require("@tailwindcss/custom-forms")],
 };
